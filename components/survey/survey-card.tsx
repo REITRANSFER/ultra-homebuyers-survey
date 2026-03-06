@@ -43,9 +43,9 @@ const LEGAL_OWNER_OPTIONS = [
 ]
 
 const LISTED_OPTIONS = [
+  { id: "not-listed", label: "No, it is not listed" },
   { id: "listed-realtor", label: "Yes, listed with a realtor" },
   { id: "listed-fsbo", label: "Yes, listed for sale by owner" },
-  { id: "not-listed", label: "No, it is not listed" },
 ]
 
 const TIMELINE_OPTIONS = [
