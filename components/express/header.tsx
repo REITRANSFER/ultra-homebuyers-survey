@@ -53,11 +53,11 @@ export function Header() {
         {/* Phone and CTA */}
         <div className="hidden items-center gap-4 lg:flex">
           <a
-            href="tel:8882984807"
+            href="tel:6464662476"
             className="flex items-center gap-2 text-sm font-semibold text-white"
           >
             <Phone className="h-4 w-4" />
-            (888) 298-4807
+            (646) 466-2476
           </a>
           <Button className="bg-[#22c55e] font-semibold text-white hover:bg-[#16a34a]">
             Get My Cash Offer
@@ -88,11 +88,11 @@ export function Header() {
               </Link>
             ))}
             <a
-              href="tel:8882984807"
+              href="tel:6464662476"
               className="flex items-center gap-2 py-3 text-sm font-semibold text-white"
             >
               <Phone className="h-4 w-4" />
-              (888) 298-4807
+              (646) 466-2476
             </a>
             <Button className="mt-3 bg-[#22c55e] font-semibold text-white hover:bg-[#16a34a]">
               Get My Cash Offer

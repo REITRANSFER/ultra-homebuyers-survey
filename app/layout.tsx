@@ -8,8 +8,8 @@ import "./globals.css"
 const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Sell Your Baltimore Area House Fast For Cash | American Home Advisor",
-  description: "Get a fair cash offer for your Baltimore area home in 24 hours. No fees, no repairs, no hassle. We buy houses in any condition.",
+  title: "Sell Your House Fast For Cash | Ultra Homebuyers",
+  description: "Get a fair cash offer for your home in 24 hours. No fees, no repairs, no hassle. We buy houses in any condition.",
   icons: {
     icon: [
       {

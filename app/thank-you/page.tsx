@@ -45,7 +45,7 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "What areas do you buy houses in?",
-    answer: "We buy houses throughout the Baltimore metropolitan area, including surrounding suburbs in Maryland, as well as DC suburban communities. If you're unsure whether we cover your area, submit your address and we'll let you know right away.",
+    answer: "We buy houses across multiple markets including Baltimore MD, Hampton Roads VA, Richmond VA, Wilmington DE, Huntsville AL, Howell MI, Tallmadge OH, select counties in Georgia, New York, and New Jersey. If you're unsure whether we cover your area, submit your address and we'll let you know right away.",
   },
   {
     question: "Is there any obligation after I submit my info?",
@@ -109,27 +109,27 @@ export default function ThankYouPage() {
               <div className="mb-4 h-16 w-16 overflow-hidden rounded-full border-2 border-gray-200 shadow-sm">
                 <Image
                   src="/images/headshot.jpeg"
-                  alt="Joe Estefan - American Home Advisor"
+                  alt="Ultra Homebuyers"
                   width={64}
                   height={64}
                   className="h-full w-full object-cover"
                 />
               </div>
               <p className="text-xs font-semibold uppercase tracking-wider text-[#1a3d6b]">A Personal Note</p>
-              <h2 className="mt-2 text-xl font-bold text-gray-900 md:text-2xl">From Joe Estefan, Founder</h2>
+              <h2 className="mt-2 text-xl font-bold text-gray-900 md:text-2xl">From Nestor & Zev, Founders</h2>
 
               <div className="mt-6 space-y-4 text-sm leading-relaxed text-gray-700 md:text-base">
                 <p>
-                  If you're reading this, you just took a step that most homeowners put off for months. Maybe years. So before anything else... I want you to know that was the right call.
+                  If you're reading this, you just took a step that most homeowners put off for months. Maybe years. So before anything else... we want you to know that was the right call.
                 </p>
                 <p>
-                  Selling a house is stressful. I've seen it hundreds of times. The uncertainty, the waiting, the feeling like you're at the mercy of a system that wasn't built for you. Realtors want you to fix everything up, stage the house, wait 90 days, and hope for the best. That works for some people. But not everyone.
+                  Selling a house is stressful. We've seen it hundreds of times. The uncertainty, the waiting, the feeling like you're at the mercy of a system that wasn't built for you. Realtors want you to fix everything up, stage the house, wait 90 days, and hope for the best. That works for some people. But not everyone.
                 </p>
                 <p>
-                  I started American Home Advisor because I grew up watching families in Baltimore struggle with exactly this. Good people stuck in bad situations. Inherited properties they couldn't afford to keep. Houses that needed more work than they had time or money for. Divorces, job relocations, tax liens... life happens. And when it does, the last thing you need is someone telling you to repaint your kitchen and "list it in the spring."
+                  We started Ultra Homebuyers because we saw too many families struggling with exactly this. Good people stuck in bad situations. Inherited properties they couldn't afford to keep. Houses that needed more work than they had time or money for. Divorces, job relocations, tax liens... life happens. And when it does, the last thing you need is someone telling you to repaint your kitchen and "list it in the spring."
                 </p>
                 <p>
-                  Here's what happens next. My team is going to review the information you submitted. Within 24 hours, you'll hear from us with a fair, no-obligation cash offer. No pressure. No games. If the number works for you, great. If it doesn't, no hard feelings. We'll still answer any questions you have.
+                  Here's what happens next. Our team is going to review the information you submitted. Within 24 hours, you'll hear from us with a fair, no-obligation cash offer. No pressure. No games. If the number works for you, great. If it doesn't, no hard feelings. We'll still answer any questions you have.
                 </p>
                 <p>
                   When you see our number come up on your phone, pick up. That call is the start of getting this weight off your shoulders. We handle the paperwork, the title work, the closing costs. You pick the date. You walk away with a check.
@@ -138,12 +138,12 @@ export default function ThankYouPage() {
                   That's it. No hidden fees. No commissions. No surprises.
                 </p>
                 <p>
-                  I built this company on one simple idea: treat people the way I'd want my own family treated. Every homeowner we work with gets my personal commitment to a fair deal and an honest process.
+                  We built this company on one simple idea: treat people the way we'd want our own families treated. Every homeowner we work with gets our personal commitment to a fair deal and an honest process.
                 </p>
                 <p className="font-medium text-gray-900">
                   Talk soon,<br />
-                  Joe Estefan<br />
-                  <span className="font-normal text-gray-500">Founder, American Home Advisor</span>
+                  Nestor & Zev<br />
+                  <span className="font-normal text-gray-500">Founders, Ultra Homebuyers</span>
                 </p>
               </div>
             </div>
@@ -172,11 +172,11 @@ export default function ThankYouPage() {
             Our team is ready to help you every step of the way.
           </p>
           <a
-            href="tel:4434078421"
+            href="tel:6464662476"
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#1a3d6b] px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-[#0f2440]"
           >
             <Phone className="h-5 w-5" />
-            Call (443) 407-8421
+            Call (646) 466-2476
           </a>
         </div>
       </div>

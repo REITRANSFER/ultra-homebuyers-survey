@@ -75,8 +75,8 @@ const REASON_OPTIONS = [
   { id: "other", label: "Other" },
 ]
 
-// Baltimore area + DC suburbs (Maryland and DC)
-const SERVICE_STATES = ["MD", "DC", "VA"]
+// Ultra Homebuyers service areas
+const SERVICE_STATES = ["MD", "DC", "VA", "MI", "AL", "OH", "DE", "GA", "NY", "NJ"]
 
 // Check if address is in service area
 const isInServiceArea = (state: string | undefined): boolean => {
@@ -235,7 +235,7 @@ export function SurveyCard() {
         const payload = {
           ...surveyData,
           ...trackingRef.current,
-          source: 'American Home Advisors - Survey',
+          source: 'Ultra Homebuyers - Survey',
           submittedAt: new Date().toISOString(),
         }
         const res = await fetch('/api/submit', {
@@ -396,10 +396,10 @@ export function SurveyCard() {
             <p className="mt-4 text-sm text-gray-500">{msg.detail}</p>
           </div>
           <a
-            href="tel:8882984807"
+            href="tel:6464662476"
             className="mt-2 inline-flex items-center gap-2 rounded-xl bg-[#1a3d6b] px-6 py-3 text-white hover:bg-[#0f2440] transition-colors"
           >
-            Call Us: (888) 298-4807
+            Call Us: (646) 466-2476
           </a>
         </div>
       </div>
@@ -663,7 +663,7 @@ export function SurveyCard() {
             </div>
             <DialogTitle className="text-center text-xl">Outside Our Service Area</DialogTitle>
             <DialogDescription className="text-center pt-2">
-              We currently only buy houses in the <strong>Baltimore, Maryland area and DC suburbs</strong>.
+              We currently only buy houses in <strong>select markets across the East Coast and Midwest</strong>.
             </DialogDescription>
           </DialogHeader>
           <div className="mt-2 rounded-lg bg-gray-50 p-4 text-center">
@@ -683,8 +683,8 @@ export function SurveyCard() {
             </Button>
             <p className="text-center text-xs text-gray-500">
               If you believe this is an error, please call us at{" "}
-              <a href="tel:8882984807" className="font-medium text-[#1a3d6b] hover:underline">
-                (888) 298-4807
+              <a href="tel:6464662476" className="font-medium text-[#1a3d6b] hover:underline">
+                (646) 466-2476
               </a>
             </p>
           </div>
