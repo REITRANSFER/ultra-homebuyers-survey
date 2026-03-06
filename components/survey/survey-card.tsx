@@ -175,6 +175,7 @@ export function SurveyCard() {
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isDisqualified, setIsDisqualified] = useState(false)
+  const [disqualifyReason, setDisqualifyReason] = useState("")
   // Track if address was selected from Google autocomplete (not just typed)
   const [addressVerified, setAddressVerified] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -295,6 +296,7 @@ export function SurveyCard() {
     // Check for disqualification on property type
     if (field === "propertyType" && ["mobile-home", "land", "other"].includes(value)) {
       setTimeout(() => {
+        setDisqualifyReason("propertyType")
         setIsDisqualified(true)
       }, 300)
       return
@@ -303,6 +305,7 @@ export function SurveyCard() {
     // Check for disqualification on listed on market
     if (field === "listedOnMarket" && ["listed-realtor", "listed-fsbo"].includes(value)) {
       setTimeout(() => {
+        setDisqualifyReason("listed")
         setIsDisqualified(true)
       }, 300)
       return
@@ -311,6 +314,7 @@ export function SurveyCard() {
     // Check for disqualification on legal owner question
     if (field === "isLegalOwner" && value === "no") {
       setTimeout(() => {
+        setDisqualifyReason("notOwner")
         setIsDisqualified(true)
       }, 300)
       return
@@ -359,8 +363,27 @@ export function SurveyCard() {
     </button>
   )
 
-  // Disqualified state - no legal rights to sell
+  // Disqualified state
   if (isDisqualified) {
+    const disqualifyMessages: Record<string, { title: string; message: string; detail: string }> = {
+      notOwner: {
+        title: "We're Unable to Assist",
+        message: "Unfortunately, we can only work with individuals who have the legal right to sell the property.",
+        detail: "If you believe you have legal authority to sell (such as power of attorney, executor of estate, or court-appointed representative), please contact us directly.",
+      },
+      listed: {
+        title: "We Can't Make an Offer Right Now",
+        message: "We're unable to make an offer on properties that are currently listed on the market.",
+        detail: "If your listing expires or you decide to take it off the market, we'd love to help. Feel free to reach out to us at that time.",
+      },
+      propertyType: {
+        title: "We're Unable to Assist",
+        message: "Unfortunately, we're not able to make an offer on this type of property at this time.",
+        detail: "We primarily purchase single-family homes, multi-family properties, and condos/townhouses. If you have a different property you'd like to sell, feel free to reach out.",
+      },
+    }
+    const msg = disqualifyMessages[disqualifyReason] || disqualifyMessages.notOwner
+
     return (
       <div className="w-full max-w-2xl rounded-2xl border border-gray-200 bg-white p-6 shadow-lg">
         <div className="flex flex-col items-center gap-5 text-center">
@@ -368,13 +391,9 @@ export function SurveyCard() {
             <XCircle className="h-7 w-7 text-red-500" />
           </div>
           <div>
-            <h2 className="text-2xl font-semibold text-gray-900">We're Unable to Assist</h2>
-            <p className="mt-2 text-gray-600">
-              Unfortunately, we can only work with individuals who have the legal right to sell the property.
-            </p>
-            <p className="mt-4 text-sm text-gray-500">
-              If you believe you have legal authority to sell (such as power of attorney, executor of estate, or court-appointed representative), please contact us directly.
-            </p>
+            <h2 className="text-2xl font-semibold text-gray-900">{msg.title}</h2>
+            <p className="mt-2 text-gray-600">{msg.message}</p>
+            <p className="mt-4 text-sm text-gray-500">{msg.detail}</p>
           </div>
           <a
             href="tel:8882984807"
