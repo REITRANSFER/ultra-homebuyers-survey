@@ -18,6 +18,7 @@ interface SurveyData {
   address: string
   propertyType: string
   isLegalOwner: string
+  listedOnMarket: string
   timeline: string
   condition: string
   reason: string
@@ -39,6 +40,12 @@ const LEGAL_OWNER_OPTIONS = [
   { id: "yes-owner", label: "Yes, I am the legal homeowner" },
   { id: "yes-family", label: "Yes, I am a family member with the legal right to sell" },
   { id: "no", label: "No, I am not" },
+]
+
+const LISTED_OPTIONS = [
+  { id: "listed-realtor", label: "Yes, listed with a realtor" },
+  { id: "listed-fsbo", label: "Yes, listed for sale by owner" },
+  { id: "not-listed", label: "No, it is not listed" },
 ]
 
 const TIMELINE_OPTIONS = [
@@ -158,6 +165,7 @@ export function SurveyCard() {
     address: "",
     propertyType: "",
     isLegalOwner: "",
+    listedOnMarket: "",
     timeline: "",
     condition: "",
     reason: "",
@@ -183,10 +191,10 @@ export function SurveyCard() {
   const [showOutOfAreaPopup, setShowOutOfAreaPopup] = useState(false)
   const [selectedState, setSelectedState] = useState("")
 
-  const totalSteps = 7
+  const totalSteps = 8
 
   const handleNext = async () => {
-    if (step === 7) {
+    if (step === 8) {
       // Validate contact info before submitting
       const errors: {[key: string]: string} = {}
 
@@ -263,12 +271,14 @@ export function SurveyCard() {
       case 3:
         return surveyData.isLegalOwner !== ""
       case 4:
-        return surveyData.timeline !== ""
+        return surveyData.listedOnMarket !== ""
       case 5:
-        return surveyData.condition !== ""
+        return surveyData.timeline !== ""
       case 6:
-        return surveyData.reason !== ""
+        return surveyData.condition !== ""
       case 7:
+        return surveyData.reason !== ""
+      case 8:
         return (
           surveyData.name.trim().length > 0 &&
           surveyData.email.trim().length > 0 &&
@@ -284,6 +294,14 @@ export function SurveyCard() {
     
     // Check for disqualification on property type
     if (field === "propertyType" && ["mobile-home", "land", "other"].includes(value)) {
+      setTimeout(() => {
+        setIsDisqualified(true)
+      }, 300)
+      return
+    }
+
+    // Check for disqualification on listed on market
+    if (field === "listedOnMarket" && ["listed-realtor", "listed-fsbo"].includes(value)) {
       setTimeout(() => {
         setIsDisqualified(true)
       }, 300)
@@ -465,8 +483,23 @@ export function SurveyCard() {
           </div>
         )}
 
-        {/* Step 4: Timeline */}
+        {/* Step 4: Listed on Market */}
         {step === 4 && (
+          <div className="flex flex-col gap-4">
+            <div>
+              <h2 className="text-2xl font-semibold text-gray-900">Is the property currently listed on the market?</h2>
+              <p className="mt-1 text-sm text-gray-500">Let us know if the property is currently for sale.</p>
+            </div>
+            <div className="flex flex-col gap-2">
+              {LISTED_OPTIONS.map((option) =>
+                renderOptionButton(option, surveyData.listedOnMarket, "listedOnMarket")
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Step 5: Timeline */}
+        {step === 5 && (
           <div className="flex flex-col gap-4">
             <div>
               <h2 className="text-2xl font-semibold text-gray-900">How fast are you looking to sell?</h2>
@@ -480,8 +513,8 @@ export function SurveyCard() {
           </div>
         )}
 
-        {/* Step 5: Condition */}
-        {step === 5 && (
+        {/* Step 6: Condition */}
+        {step === 6 && (
           <div className="flex flex-col gap-4">
             <div>
               <h2 className="text-2xl font-semibold text-gray-900">What condition is the property in?</h2>
@@ -495,8 +528,8 @@ export function SurveyCard() {
           </div>
         )}
 
-        {/* Step 6: Reason */}
-        {step === 6 && (
+        {/* Step 7: Reason */}
+        {step === 7 && (
           <div className="flex flex-col gap-4">
             <div>
               <h2 className="text-2xl font-semibold text-gray-900">What's your reason for selling?</h2>
@@ -510,8 +543,8 @@ export function SurveyCard() {
           </div>
         )}
 
-        {/* Step 7: Contact Information */}
-        {step === 7 && (
+        {/* Step 8: Contact Information */}
+        {step === 8 && (
           <div className="flex flex-col gap-4">
             <div>
               <h2 className="text-2xl font-semibold text-gray-900">How can we reach you?</h2>
