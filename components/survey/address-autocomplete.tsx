@@ -104,24 +104,33 @@ export function AddressAutocomplete({
     })
   }
 
+  const [isFocused, setIsFocused] = useState(false)
+
   return (
     <div className="relative">
-      <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
-        <MapPin className="h-5 w-5 text-gray-400" />
-      </div>
-      <Input
-        ref={inputRef}
-        type="text"
-        placeholder={placeholder}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="h-12 pl-10 rounded-xl border-gray-200 bg-white text-gray-900 placeholder:text-gray-400 focus:border-[#1a3d6b] focus:ring-[#1a3d6b]/20"
-      />
-      {!isLoaded && (
-        <div className="absolute right-3 top-1/2 -translate-y-1/2">
-          <div className="h-4 w-4 animate-spin rounded-full border-2 border-gray-200 border-t-[#1a3d6b]" />
-        </div>
+      {!value && !isFocused && (
+        <div className="absolute -inset-1 rounded-2xl bg-[#1a3d6b]/20 animate-pulse" />
       )}
+      <div className="relative">
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 z-10">
+          <MapPin className="h-5 w-5 text-[#1a3d6b]" />
+        </div>
+        <Input
+          ref={inputRef}
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
+          className="h-16 pl-10 rounded-xl border-2 border-[#1a3d6b]/50 bg-white text-lg text-gray-900 placeholder:text-gray-400 focus:border-[#1a3d6b] focus:ring-[#1a3d6b]/20"
+        />
+        {!isLoaded && (
+          <div className="absolute right-3 top-1/2 -translate-y-1/2">
+            <div className="h-4 w-4 animate-spin rounded-full border-2 border-gray-200 border-t-[#1a3d6b]" />
+          </div>
+        )}
+      </div>
     </div>
   )
 }
