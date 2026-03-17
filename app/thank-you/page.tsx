@@ -172,11 +172,11 @@ export default function ThankYouPage() {
             Our team is ready to help you every step of the way.
           </p>
           <a
-            href="tel:6464662476"
+            href="tel:8664536019"
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#1a3d6b] px-8 py-3 text-lg font-semibold text-white transition-colors hover:bg-[#0f2440]"
           >
             <Phone className="h-5 w-5" />
-            Call (646) 466-2476
+            Call (866) 453-6019
           </a>
         </div>
       </div>
