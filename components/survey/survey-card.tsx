@@ -634,36 +634,36 @@ export function SurveyCard() {
           </div>
         )}
 
-        {/* Navigation buttons */}
-        <div className="flex items-center justify-between">
-          <Button
-            variant="ghost"
-            onClick={handleBack}
-            disabled={step === 1}
-            className="text-gray-500 hover:text-gray-900 hover:bg-gray-100 disabled:opacity-0"
-          >
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back
-          </Button>
-          <Button
-            onClick={handleNext}
-            disabled={!canProceed() || isSubmitting}
-            className="bg-[#1a3d6b] text-white hover:bg-[#0f2440] disabled:opacity-50"
-          >
-            {isSubmitting ? (
-              <span className="flex items-center gap-2">
-                <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-white" />
-                Submitting...
-              </span>
-            ) : (
-              <>
-                {step === totalSteps ? "Get My Cash Offer" : "Continue"}
-                {step !== totalSteps && <ArrowRight className="ml-2 h-4 w-4" />}
-              </>
-            )}
-          </Button>
-        </div>
-      </div>
+        {/* Navigation buttons — hidden on step 1 since the big CTA handles it */}
+        {step !== 1 && (
+          <div className="flex items-center justify-between">
+            <Button
+              variant="ghost"
+              onClick={handleBack}
+              className="text-gray-500 hover:text-gray-900 hover:bg-gray-100"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back
+            </Button>
+            <Button
+              onClick={handleNext}
+              disabled={!canProceed() || isSubmitting}
+              className={`${step === totalSteps ? "bg-[#9b2335] hover:bg-[#7d1c2a] h-12 px-8 text-base font-semibold shadow-md" : "bg-[#1a3d6b] hover:bg-[#0f2440] h-11 px-6"} text-white disabled:opacity-50`}
+            >
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/20 border-t-white" />
+                  Submitting...
+                </span>
+              ) : (
+                <>
+                  {step === totalSteps ? "Get My Cash Offer" : "Continue"}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </>
+              )}
+            </Button>
+          </div>
+        )}      </div>
 
       {/* Out of Service Area Popup */}
       <Dialog open={showOutOfAreaPopup} onOpenChange={setShowOutOfAreaPopup}>
