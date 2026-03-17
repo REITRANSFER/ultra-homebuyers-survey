@@ -11,10 +11,10 @@ export default function UltraHomebuyersPage() {
         <div className="flex items-center justify-center gap-2 bg-white py-2 md:py-4 shadow-sm">
           <Phone className="h-4 w-4 md:h-5 md:w-5 text-[#1a3d6b]" />
           <a
-            href="tel:6464662476"
+            href="tel:8664536019"
             className="text-base md:text-lg font-semibold text-gray-900 hover:text-[#1a3d6b] transition-colors"
           >
-            (646) 466-2476
+            (866) 453-6019
           </a>
         </div>
 
