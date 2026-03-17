@@ -19,8 +19,8 @@ export function FooterLinks() {
               Terms of Service
             </Link>
             <span className="text-gray-300">|</span>
-            <a href="tel:6464662476" className="transition-colors hover:text-gray-900">
-              (646) 466-2476
+            <a href="tel:8664536019" className="transition-colors hover:text-gray-900">
+              (866) 453-6019
             </a>
           </div>
 
