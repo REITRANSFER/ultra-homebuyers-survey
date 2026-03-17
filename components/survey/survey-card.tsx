@@ -396,10 +396,10 @@ export function SurveyCard() {
             <p className="mt-4 text-sm text-gray-500">{msg.detail}</p>
           </div>
           <a
-            href="tel:6464662476"
+            href="tel:8664536019"
             className="mt-2 inline-flex items-center gap-2 rounded-xl bg-[#1a3d6b] px-6 py-3 text-white hover:bg-[#0f2440] transition-colors"
           >
-            Call Us: (646) 466-2476
+            Call Us: (866) 453-6019
           </a>
         </div>
       </div>
@@ -694,8 +694,8 @@ export function SurveyCard() {
             </Button>
             <p className="text-center text-xs text-gray-500">
               If you believe this is an error, please call us at{" "}
-              <a href="tel:6464662476" className="font-medium text-[#1a3d6b] hover:underline">
-                (646) 466-2476
+              <a href="tel:8664536019" className="font-medium text-[#1a3d6b] hover:underline">
+                (866) 453-6019
               </a>
             </p>
           </div>
