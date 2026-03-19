@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { CheckCircle2, ChevronDown, Phone } from "lucide-react"
 import { FooterLinks } from "@/components/polar/footer-links"
-import Image from "next/image"
+
 
 interface FAQItem {
   question: string
@@ -106,15 +106,6 @@ export default function ThankYouPage() {
           {/* Letter from the Founder */}
           <div className="mb-8 overflow-hidden rounded-2xl bg-white shadow-lg">
             <div className="px-6 py-8 md:px-8 md:py-10">
-              <div className="mb-4 h-16 w-16 overflow-hidden rounded-full border-2 border-gray-200 shadow-sm">
-                <Image
-                  src="/images/headshot.jpeg"
-                  alt="Ultra Homebuyers"
-                  width={64}
-                  height={64}
-                  className="h-full w-full object-cover"
-                />
-              </div>
               <p className="text-xs font-semibold uppercase tracking-wider text-[#1a3d6b]">A Personal Note</p>
               <h2 className="mt-2 text-xl font-bold text-gray-900 md:text-2xl">From Nestor & Zev, Founders</h2>
 
