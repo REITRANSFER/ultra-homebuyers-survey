@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import { usePathname } from "next/navigation"
 
-const FB_PIXEL_ID = "1358399958770677"
+const FB_PIXEL_ID = "2768124393525724"
 
 declare global {
   interface Window {
