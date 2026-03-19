@@ -6,7 +6,7 @@ import { FacebookPixel } from "@/components/tracking/facebook-pixel"
 import Script from "next/script"
 import "./globals.css"
 
-const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"] })
+const plusJakartaSans = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap" })
 
 export const metadata: Metadata = {
   title: "Sell Your House Fast For Cash | Ultra Homebuyers",
@@ -38,12 +38,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased ${plusJakartaSans.className}`}>
+        {children}
         <FacebookPixel />
         <Script
           src="//cdn.callrail.com/companies/968439646/71b22898e513025b3cb2/12/swap.js"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        {children}
         <Analytics />
       </body>
     </html>
