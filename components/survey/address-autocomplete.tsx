@@ -35,15 +35,17 @@ export function AddressAutocomplete({
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
   const [isLoaded, setIsLoaded] = useState(false)
 
-  useEffect(() => {
-    // Check if script already loaded
+  const loadGoogleMaps = () => {
+    // Already loaded
     if (window.google?.maps?.places) {
       setIsLoaded(true)
       initAutocomplete()
       return
     }
 
-    // Load Google Places script
+    // Already loading (script tag exists)
+    if (document.querySelector('script[src*="maps.googleapis.com"]')) return
+
     const script = document.createElement("script")
     script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.NEXT_PUBLIC_GOOGLE_PLACES_API_KEY}&libraries=places`
     script.async = true
@@ -53,9 +55,10 @@ export function AddressAutocomplete({
       initAutocomplete()
     }
     document.head.appendChild(script)
+  }
 
+  useEffect(() => {
     return () => {
-      // Cleanup
       if (autocompleteRef.current) {
         google.maps.event.clearInstanceListeners(autocompleteRef.current)
       }
@@ -121,7 +124,7 @@ export function AddressAutocomplete({
           placeholder={placeholder}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          onFocus={() => setIsFocused(true)}
+          onFocus={() => { setIsFocused(true); loadGoogleMaps() }}
           onBlur={() => setIsFocused(false)}
           className="h-16 pl-10 rounded-xl border-2 border-[#1a3d6b]/50 bg-white text-lg text-gray-900 placeholder:text-gray-400 focus:border-[#1a3d6b] focus:ring-[#1a3d6b]/20"
         />

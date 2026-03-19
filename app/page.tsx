@@ -1,6 +1,10 @@
-import { SurveyCard } from "@/components/survey/survey-card"
+import dynamic from "next/dynamic"
 import { FooterLinks } from "@/components/polar/footer-links"
 import { Phone } from "lucide-react"
+
+const SurveyCard = dynamic(() => import("@/components/survey/survey-card").then(mod => ({ default: mod.SurveyCard })), {
+  loading: () => <div className="h-[400px] animate-pulse rounded-2xl bg-gray-200" />,
+})
 
 export default function UltraHomebuyersPage() {
   return (
