@@ -77,15 +77,8 @@ function FAQAccordion({ item }: { item: FAQItem }) {
 }
 
 export default function ThankYouPage() {
-  // Fire Facebook Lead event on page load
+  // Fire Facebook Lead event once on page load
   useEffect(() => {
-    const PIXEL_ID = "2768124393525724"
-
-    // Immediate: fire image pixel (works without SDK)
-    const img = new Image()
-    img.src = `https://www.facebook.com/tr?id=${PIXEL_ID}&ev=Lead&noscript=1&r=${Math.random()}`
-
-    // Poll for fbq to become available (SDK loads after 3s delay in layout)
     let attempts = 0
     const interval = setInterval(() => {
       attempts++
@@ -93,7 +86,7 @@ export default function ThankYouPage() {
         window.fbq("track", "Lead")
         clearInterval(interval)
       }
-      if (attempts > 20) clearInterval(interval) // stop after 10s
+      if (attempts > 20) clearInterval(interval)
     }, 500)
 
     return () => clearInterval(interval)
